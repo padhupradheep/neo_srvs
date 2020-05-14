@@ -14,6 +14,9 @@ add_service_files(FILES
   RelayBoardSetRelay.srv
   IOBoardSetDigOut.srv
   RelayBoardSetLCDMsg.srv
+  LockPlatform.srv
+  UnlockPlatform.srv
+  ResetOmniWheels.srv
 )
 
 generate_messages(
