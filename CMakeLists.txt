@@ -17,6 +17,9 @@ add_service_files(FILES
   LockPlatform.srv
   UnlockPlatform.srv
   ResetOmniWheels.srv
+  RelayBoardSetEMStop.srv
+  RelayBoardUnSetEMStop.srv
+
 )
 
 generate_messages(
