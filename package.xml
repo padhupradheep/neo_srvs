@@ -1,20 +1,16 @@
-<package format="2">
+<package format="3">
   <name>neo_srvs</name>
   <version>0.1.0</version>
-  <description>ROS-Services for Neobotix mobile Robots</description>
+  <description>ROS2-Services for Neobotix mobile Robots</description>
 
   <license>LGPL</license>
-
   <maintainer email="ros@neobotix.de">Neobotix</maintainer>
-
   <license>BSD</license>
   <url type="website">http://www.neobotix-robots.com</url>
+  <author>Pradheep Krishna Padmanabhan</author>
 
-  <author>Jan-Niklas Nieland</author>
-
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <build_depend>message_generation</build_depend>
-  <exec_depend>message_runtime</exec_depend>
-
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
 </package>

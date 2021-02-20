@@ -1,31 +1,26 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(neo_srvs)
 
 ## By default build with code optimization and no debug info
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE "Release"
-  	  CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel."
-      FORCE)
-endif(NOT CMAKE_BUILD_TYPE)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-find_package(catkin REQUIRED COMPONENTS message_generation)
+find_package(rosidl_default_generators REQUIRED)
 
-add_service_files(FILES
-  RelayBoardSetRelay.srv
-  IOBoardSetDigOut.srv
-  RelayBoardSetLCDMsg.srv
-  LockPlatform.srv
-  UnlockPlatform.srv
-  ResetOmniWheels.srv
-  RelayBoardSetEMStop.srv
-  RelayBoardUnSetEMStop.srv
-
+rosidl_generate_interfaces(rosidl_generate_interfaces
+  "srv/RelayBoardSetRelay.srv"
+  "srv/IOBoardSetDigOut.srv"
+  "srv/RelayBoardSetLCDMsg.srv"
+  "srv/LockPlatform.srv"
+  "srv/UnlockPlatform.srv"
+  "srv/ResetOmniWheels.srv"
+  "srv/RelayBoardSetEMStop.srv"
+  "srv/RelayBoardUnSetEMStop.srv"
 )
 
-generate_messages(
-  DEPENDENCIES
-)
 
-catkin_package(
-    CATKIN_DEPENDS message_runtime
-)
+ament_package()
