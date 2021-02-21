@@ -11,7 +11,7 @@ endif()
 
 find_package(rosidl_default_generators REQUIRED)
 
-rosidl_generate_interfaces(rosidl_generate_interfaces
+rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/RelayBoardSetRelay.srv"
   "srv/IOBoardSetDigOut.srv"
   "srv/RelayBoardSetLCDMsg.srv"
@@ -22,5 +22,8 @@ rosidl_generate_interfaces(rosidl_generate_interfaces
   "srv/RelayBoardUnSetEMStop.srv"
 )
 
+
+# ament_package()
+ament_export_dependencies(rosidl_default_runtime)
 
 ament_package()
